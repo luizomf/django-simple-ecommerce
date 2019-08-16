@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 class Criar(View):
     def get(self, *args, **kwargs):
+        # Teste
         return HttpResponse('Criar')
 
 
