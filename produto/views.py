@@ -26,7 +26,7 @@ class DetalheProduto(DetailView):
 
 class AdicionarAoCarrinho(View):
     def get(self, *args, **kwargs):
-        # TODO: Remover linhas abaixo
+        # TODO: Remover linhas abaixo .
         # if self.request.session.get('carrinho'):
         #     del self.request.session['carrinho']
         #     self.request.session.save()
