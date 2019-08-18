@@ -1,8 +1,100 @@
 {% extends 'base.html' %}
+{% load omfilters %}
+{% load static %}
 
 
 {% block conteudo %}
 
-{{ request.session.carrinho }}
+{% if carrinho %}
+
+<div class="row mt-3">
+    <div class="col">
+        <h3>Carrinho de compras</h3>
+        <p class="lead">Os produtos, quantidades e preços que você escolheu.</p>
+
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th class="d-none d-lg-block">Imagem</th>
+                    <th>Produto</th>
+                    <th>V.</th>
+                    <th>QTD.</th>
+                    <th>Total</th>
+                </tr>
+
+                {% for linha in carrinho.values %}
+                <tr>
+                    <td class="d-none d-lg-block">
+                        <img class="cart-img" src="{% get_media_prefix %}{{ linha.imagem }}">
+                    </td>
+                    <td>
+                        <a href="{% url 'produto:detalhe' linha.slug %}">
+                            {{ linha.produto_nome }}
+                        </a>
+
+                        <a class="ml-3" href="{% url 'produto:removerdocarrinho' %}?vid={{ linha.variacao_id }}">
+                            <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>{{ linha.variacao_nome }}</td>
+                    <td>
+                        {{ linha.quantidade }} x
+                        {% if linha.preco_unitario_promocional %}
+                        {{ linha.preco_unitario_promocional }}
+                        {% else %}
+                        {{ linha.preco_unitario }}
+                        {% endif %}
+                    </td>
+
+                    {% if linha.preco_quantitativo_promocional %}
+                    <td>{{ linha.preco_quantitativo_promocional|formata_preco }}</td>
+                    {% else %}
+                    <td>{{ linha.preco_quantitativo|formata_preco }}</td>
+                    {% endif %}
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row mt-3">
+    <div class="col-lg">
+        <p class='lead'>Total no carrinho</p>
+
+        <div class='table-responsive'>
+            <table class="table">
+                <tr>
+                    <td class="font-weight-bold">Total</td>
+                    <td>R$100000</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg mt-auto">
+        <a class="btn btn-lg btn-block btn-primary" href="#">
+            Finalizar a compra
+        </a>
+    </div>
+</div>
+
+{% else %}
+
+<div class="row mt-3">
+    <div class="col">
+        <h3>Carrinho vazio</h3>
+        <p class="lead">Não há produtos no seu carrinho.</p>
+    </div>
+</div>
+
+{% endif %}
+
+
+
 
 {% endblock %}
