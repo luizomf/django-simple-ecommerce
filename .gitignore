@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=python,django,pycharm,pycharm+iml,pycharm+all,sublimetext,visualstudio,visualstudiocode,jupyternotebooks
 
 ### Django ###
+testes_nada_a_ver.py
 *.log
 *.pot
 *.pyc
