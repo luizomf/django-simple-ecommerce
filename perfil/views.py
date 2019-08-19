@@ -61,7 +61,10 @@ class BasePerfil(View):
 
 class Criar(BasePerfil):
     def post(self, *args, **kwargs):
+        # TODO: necessário voltar a linha abaixo em produção
         # if not self.userform.is_valid() or not self.perfilform.is_valid():
+
+        # TODO: remover linha abaixo e voltar linha acima
         if not self.userform.is_valid():
             return self.renderizar
 
