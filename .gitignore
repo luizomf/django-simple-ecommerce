@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/python,django,pycharm,pycharm+iml,pycharm+all,sublimetext,visualstudio,visualstudiocode,jupyternotebooks
 # Edit at https://www.gitignore.io/?templates=python,django,pycharm,pycharm+iml,pycharm+all,sublimetext,visualstudio,visualstudiocode,jupyternotebooks
 
-### Django ###
+### Django ####
 testes_nada_a_ver.py
 *.log
 *.pot
