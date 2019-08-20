@@ -15,21 +15,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
+
+            {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Conta
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{% url 'perfil:criar' %}">Atualizar</a>
+                    <a class="dropdown-item" href="{% url 'perfil:logout' %}">Sair</a>
                 </div>
             </li>
+            {% else %}
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" href="{% url 'perfil:criar' %}">Entrar</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'perfil:criar' %}">Criar conta</a>
+            </li>
+            {% endif %}
 
             {% if request.session.carrinho %}
             <li class="nav-item">
