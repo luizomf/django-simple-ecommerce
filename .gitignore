@@ -2,8 +2,10 @@
 # Created by https://www.gitignore.io/api/python,django,pycharm,pycharm+iml,pycharm+all,sublimetext,visualstudio,visualstudiocode,jupyternotebooks
 # Edit at https://www.gitignore.io/?templates=python,django,pycharm,pycharm+iml,pycharm+all,sublimetext,visualstudio,visualstudiocode,jupyternotebooks
 
-### Django ###
+### Local ###
 testes_nada_a_ver.py
+
+### Django ###
 *.log
 *.pot
 *.pyc
@@ -419,11 +421,12 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
