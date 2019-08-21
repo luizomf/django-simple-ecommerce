@@ -4,6 +4,7 @@
 
 ### Local ###
 testes_nada_a_ver.py
+DUMB_DB_DATA.json
 
 ### Django ###
 *.log
