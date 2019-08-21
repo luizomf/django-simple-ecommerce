@@ -70,5 +70,9 @@ pip install django django-debug-toolbar django-crispy-forms pillow
 python manage.py migrate
 ```
 
+Caso queira usar os dados DUMP_DB_DATA.json (dados para testes), use o seguinte:
+
+
+
 Pronto!
 
