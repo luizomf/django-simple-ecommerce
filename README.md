@@ -26,8 +26,8 @@ Abaixo uma lista do que adicionei ou ainda pretendo adicionar.
 - [x] Remover produtos do carrinho
 - [x] Model perfil (criar e atualizar)
 - [x] Login e Logout do cliente
-- [ ] Registrar pedido do cliente
-- [ ] Página de pagamento
+- [x] Registrar pedido do cliente
+- [x] Página de pagamento
 
 ### Tutorial para iniciantes
 Abaixo uma lista de comandos para clonar e configurar este projeto na sua 

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load omfilters %}
+
+{% block conteudo %}
+
+<div class="row">
+    <div class="col">
+        <h3 class="mb-4">Pedidos de {{ user }}</h3>
+        <p>Abaixo todos os seus pedidos realizados na loja.</p>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col">Pedido</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Qtd. Itens</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Mais detalhes</th>
+                </tr>
+
+
+                {% for pedido in pedidos %}
+                <tr>
+                    <th scope="row">{{ pedido }}</td>
+                    <td>{{ pedido.total|formata_preco }}</td>
+                    <td>{{ pedido.qtd_total }}</td>
+                    <td>{{ pedido.get_status_display }}</td>
+                    <td>
+                        <a href="{% url 'pedido:detalhe' pedido.id %}">
+                            Ver <i class="fas fa-search-plus ml-2"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'parciais/_pagination.html' %}
+
+{% endblock %}

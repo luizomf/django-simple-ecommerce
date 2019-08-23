@@ -1,0 +1,57 @@
+{% load static %}
+{% load omfilters %}
+
+<div class="row">
+    <div class="col">
+        <h3>{{ pedido }}</h3>
+
+        <div class="row mt-4">
+            <div class="col-lg-2 font-weight-bold">Número do pedido:</div>
+            <div class="col-lg-4">{{ pedido.id }}</div>
+            <div class="col-lg-2 font-weight-bold">Total a pagar:</div>
+            <div class="col-lg-4">{{ pedido.total|formata_preco }}</div>
+
+            <div class="col-lg-2 font-weight-bold">QTD. Itens:</div>
+            <div class="col-lg-4">{{ pedido.qtd_total }}</div>
+            <div class="col-lg-2 font-weight-bold">Status:</div>
+            <div class="col-lg-4">{{ pedido.get_status_display }}</div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col">
+                <h3>Produtos</h3>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <tr>
+                    <th class="d-none d-lg-block">Imagem</th>
+                    <th>Produto</th>
+                    <th>V.</th>
+                    <th>QTD.</th>
+                    <th>Total</th>
+                </tr>
+
+                {% for linha in pedido.itempedido_set.all %}
+                <tr>
+                    <td class="d-none d-lg-block">
+                        <img class="cart-img" src="{% get_media_prefix %}{{ linha.imagem }}">
+                    </td>
+                    <td>{{ linha.produto }}</td>
+                    <td>{{ linha.variacao }}</td>
+                    <td>{{ linha.quantidade }}</td>
+                    <td>
+                        {% if linha.preco_promocional %}
+                        {{ linha.preco_promocional|formata_preco }}
+                        {% else %}
+                        {{ linha.preco|formata_preco }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
