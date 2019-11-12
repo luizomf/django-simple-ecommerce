@@ -6,6 +6,7 @@
 testes_nada_a_ver.py
 DUMB_DB_DATA.json
 TODOs.txt
+TESTES.py
 
 ### Django ###
 *.log
