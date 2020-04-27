@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import redirect, reverse
 from django.views.generic import ListView, DetailView
 from django.views import View
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.contrib import messages
 
 from produto.models import Variacao
@@ -71,9 +71,10 @@ class SalvarPedido(View):
                 carrinho[vid]['preco_quantitativo_promocional'] = estoque * \
                     preco_unt_promo
 
-                error_msg_estoque = 'Estoque insuficiente para alguns produtos do seu carrinho. '\
-                                    'Reduzimos a quantidade desses produtos. Por favor, '\
-                                    'verifique quais produtos foram afetados a seguir.'
+                error_msg_estoque = 'Estoque insuficiente para alguns '\
+                    'produtos do seu carrinho. '\
+                    'Reduzimos a quantidade desses produtos. Por favor, '\
+                    'verifique quais produtos foram afetados a seguir.'
 
             if error_msg_estoque:
                 messages.error(
