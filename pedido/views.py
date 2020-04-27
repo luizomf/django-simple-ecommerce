@@ -44,7 +44,7 @@ class SalvarPedido(View):
         if not self.request.session.get('carrinho'):
             messages.error(
                 self.request,
-                'Carrinho vazio.'
+                'Seu carrinho está vazio.'
             )
             return redirect('produto:lista')
 
