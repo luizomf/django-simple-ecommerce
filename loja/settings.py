@@ -153,3 +153,5 @@ SESSION_SAVE_EVERY_REQUEST = False
 
 # Serializer - Padrão JSON
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField' #resolve problema de Auto-created primary key gjango 3.2
