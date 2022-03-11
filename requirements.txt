@@ -1,4 +1,4 @@
 Django==3.1.6
 django-crispy-forms==1.9.0
 django-debug-toolbar==2.2
-Pillow==7.1.1
+Pillow==9.0.1
