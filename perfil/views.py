@@ -168,6 +168,11 @@ class Login(View):
 
         login(self.request, user=usuario)
 
+        # Redireciona para lista de produtos caso não tenha um carrinho ainda ao criar ou acessar a conta
+        carrinho = copy.deepcopy(self.request.session.get('carrinho'))
+        if not carrinho:
+            return redirect('produto:lista')
+            
         messages.success(
             self.request,
             'Você fez login no sistema e pode concluir sua compra.'
